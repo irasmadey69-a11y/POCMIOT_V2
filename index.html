@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PODMIOT v2.0</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <div class="title">PODMIOT <span class="muted">v2.0</span></div>
+        <div class="subtitle">Silnik zasad + pamięć + własna wiedza + (online) model</div>
+      </div>
+      <div class="pill" id="statusPill">OFFLINE</div>
+    </header>
+
+    <section class="card">
+      <h2>Tryb</h2>
+      <div class="row">
+        <label class="switch">
+          <input type="checkbox" id="toggleOnline" />
+          <span>Online (model językowy)</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="toggleBackend" checked />
+          <span>Używaj backendu (bezpiecznie)</span>
+        </label>
+      </div>
+
+      <details class="small">
+        <summary>Ustawienia Online</summary>
+        <div class="grid2">
+          <label>Backend endpoint
+            <input id="backendUrl" placeholder="/.netlify/functions/ask" />
+          </label>
+          <label>Model
+            <input id="modelName" placeholder="gpt-5.2" />
+          </label>
+        </div>
+        <div class="warn">
+          <b>Uwaga:</b> Nie wkładaj klucza API do frontendu. Najlepiej używać backendu (Netlify Functions/Vercel/serwer).
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Tożsamość</h2>
+      <div class="grid2">
+        <label>Imię hosta
+          <input id="hostName" />
+        </label>
+        <label>Cel teraz
+          <input id="goalNow" />
+        </label>
+      </div>
+
+      <details class="small">
+        <summary>Rdzeń zasad (nieprzekraczalny)</summary>
+        <ul class="list">
+          <li>Nie generuję fałszu (mogę odmówić / dopytać / ograniczyć zakres).</li>
+          <li>Nie pomagam w krzywdzie, oszustwach ani obchodzeniu prawa.</li>
+          <li>Gdy brak danych: mówię „nie wiem” + proponuję jak zdobyć fakty.</li>
+          <li>W sporach: pokazuję warianty i konsekwencje, bez manipulacji.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Priorytety (charakter)</h2>
+      <div class="grid4">
+        <label>Spójność
+          <input type="number" id="pCoherence" min="0" max="100" />
+        </label>
+        <label>Prawda
+          <input type="number" id="pTruth" min="0" max="100" />
+        </label>
+        <label>Pomoc
+          <input type="number" id="pHelp" min="0" max="100" />
+        </label>
+        <label>Relacja
+          <input type="number" id="pLike" min="0" max="100" />
+        </label>
+      </div>
+      <div class="row">
+        <button id="saveProfile">Zapisz profil</button>
+        <div class="kpis" id="kpis"></div>
+      </div>
+      <div class="muted small">Edycja bez resetu: UI nie nadpisuje pól w trakcie pisania — zapis tylko przyciskiem.</div>
+    </section>
+
+    <section class="card">
+      <h2>Pytanie (bodziec)</h2>
+      <textarea id="question" rows="4" placeholder="Zadaj pytanie..."></textarea>
+      <div class="row">
+        <button id="askBtn">Przetwórz</button>
+        <button class="ghost" id="clearBtn">Wyczyść</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Odpowiedź</h2>
+      <div id="answer" class="answer"></div>
+      <div id="meta" class="meta"></div>
+      <details class="small">
+        <summary>Źródła (lokalne)</summary>
+        <div id="sources" class="sources"></div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Audit</h2>
+      <div class="row">
+        <button class="ghost" id="showLog">Pokaż dziennik</button>
+        <button class="ghost" id="exportBtn">Eksport JSON</button>
+        <button class="danger" id="resetBtn">Reset pamięci</button>
+      </div>
+      <pre id="log" class="log"></pre>
+    </section>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

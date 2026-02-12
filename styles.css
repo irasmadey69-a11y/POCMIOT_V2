@@ -1,0 +1,30 @@
+:root { --bg:#0f0f10; --card:#17181a; --muted:#9aa0a6; --fg:#e9eaee; --accent:#ffffff; --line:#2a2d31; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+.top{display:flex;justify-content:space-between;align-items:center;margin:6px 2px 16px}
+.title{font-size:22px;font-weight:800;letter-spacing:.2px}
+.subtitle{color:var(--muted);font-size:13px;margin-top:2px}
+.pill{padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-weight:700;font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;margin:12px 0}
+h2{margin:0 0 10px;font-size:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+label{display:block;font-size:12px;color:var(--muted)}
+input,textarea{width:100%;margin-top:6px;padding:10px;border-radius:12px;border:1px solid var(--line);background:#0b0c0e;color:var(--fg);outline:none}
+textarea{resize:vertical}
+.row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+button{background:#000;color:#fff;border:1px solid #000;border-radius:12px;padding:10px 12px;font-weight:800;cursor:pointer}
+button:hover{opacity:.9}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+button.danger{background:#2b0000;border-color:#3a0000}
+.kpis{color:var(--muted);font-size:12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.warn{margin-top:10px;padding:10px;border-radius:12px;border:1px solid #3b2a00;background:#1b1400;color:#ffd27a}
+.answer{padding:12px;border-radius:14px;background:#0b0c0e;border:1px solid var(--line);min-height:48px}
+.meta{margin-top:8px;color:var(--muted);font-size:12px}
+.log{max-height:280px;overflow:auto;background:#000;border:1px solid var(--line);border-radius:12px;padding:10px}
+.list{margin:0;padding-left:18px;color:var(--muted)}
+.sources{color:var(--muted);font-size:13px}
+.switch{display:flex;gap:10px;align-items:center;color:var(--fg);font-size:13px}
